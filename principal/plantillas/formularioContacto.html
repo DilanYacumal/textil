@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Contacto</title>
+    <link rel=StyleSheet href="CSS/estilos.css" type="text/css">
+    <enlace href="https: //fonts.googleapis.com/css2? family= Roboto:wght@300 & display=swap" rel="stylesheet"></enlace>
+</head>
+<body>
+
+        <div class="formulario">
+            <h1>Contactenos</h1>
+            <form action="/contactar/" method="POST"> {% csrf_token %}
+                <p>Asunto: <input type="text" name="txtAsunto"></p>
+                <p>Email: <input type="email" name="txtEmail"></p>
+                <p>
+                    Mensaje:
+                    <textarea name="txtMensaje" rows="5" cols="30" style="resize: none;"></textarea>
+            </p>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+        <div class="animacion">
+            <img src="imagenes/pelotahilo.png" alt="Imagen animacion">
+        </div>
+</body>
+</html>

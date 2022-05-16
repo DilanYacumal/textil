@@ -1,0 +1,23 @@
+body{
+    padding: 0%;
+    background-color: gainsboro;
+}
+
+.formulario{
+    margin-top: 10%;
+    margin-bottom: auto;
+    margin-left: 35%;
+    margin-right: 35%;
+    border-style: ridge;
+    text-align: center;
+    background-color: aliceblue;
+    font-family: 'Roboto', sans-serif;
+    float:inline-start;
+}
+
+.animacion{
+    height: 50px;
+    width: 50px;
+    background-color: brown;
+    float: left;
+}

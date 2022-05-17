@@ -108,7 +108,7 @@ class Persona(models.Model):
     primer_apellido = models.CharField(max_length=45)
     segundo_apellido = models.CharField(max_length=45)
     gmail = models.CharField(max_length=20)
-    contrasena = models.CharField(max_length=25)
+    contraseña = models.CharField(max_length=25)
     telefono = models.CharField(max_length=12)
     edad = models.CharField(max_length=10)
     fecha_nacimiento = models.DateField()

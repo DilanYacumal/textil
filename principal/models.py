@@ -26,6 +26,7 @@ class Bodega(models.Model):
     nombre_bodega = models.CharField(max_length=20)
     ubicacion = models.CharField(max_length=20)
 
+
     class Meta:
         managed = False
         db_table = 'bodega'

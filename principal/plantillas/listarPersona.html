@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Persona</title>
+</head>
+<body>
+    <table>
+        <head>
+            <tr>
+                <td>Id</td>
+                <td>Primer nombre</td>
+                <td>Segundo nombre</td>
+                <td>Primer apellido</td>
+                <td>Segundo apellido</td>
+                <td>Correo electronico</td>
+                <td>Contraseña</td>
+                <td>Telefono</td>
+                <td>Edad</td>
+                <td>fecha de nacimiento</td>
+                <td>fecha ingreso</td>
+                <td>tipo persona</td>
+                <td>area</td>
+                <td>tipo documento</td>
+            </tr>
+        </head>
+        <tbody>
+            {% for persona in persona %}
+                <tr>
+                        <td>{{persona.id_persona}}</td>
+                        <td>{{persona.primer_nombre}}</td>
+                        <td>{{persona.segundo_nombre}}</td>
+                        <td>{{persona.primer_apellido}}</td>
+                        <td>{{persona.segundo_apellido}}</td>
+                        <td>{{persona.correo_electronico}}</td>
+                        <td>{{persona.contraseña}}</td>
+                        <td>{{persona.telefono}}</td>
+                        <td>{{persona.edad}}</td>
+                        <td>{{persona.fecha_nacimiento}}</td>
+                        <td>{{persona.fecha_ingreso}}</td>
+                        <td>{{persona.tipo_persona_idtipo_persona.nombre}}</td>
+                        <td>{{persona.area_idarea.nombre}}</td>
+                        <td>{{persona.tipo_documento_idtipo_documento.nombre}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

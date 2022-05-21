@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from multiprocessing import context
+from django.shortcuts import render,redirect
 from django.conf import settings
 from django.core.mail import send_mail
 from .models import *
@@ -28,7 +29,25 @@ def crearPersona(request):
         form = PersonaForm(request.POST)
         if form.is_valid():
             form.save()
-            return('index')
+            return redirect('index')
     else:
         form = PersonaForm()
     return render(request, 'crearPersona.html', {'form':form})
+
+def listarPersona(request):
+    persona = Persona.objects.all()
+    context = {'persona' : persona}
+    return render (request,'listarPersona.html', context)
+
+def editarPersona(request,id_persona):
+    persona = Persona.objects.get(id = id_persona)
+    if request.method =='GET':
+        form = PersonaForm(instance = persona)
+    else:
+        form = PersonaForm(request.POST, instance = persona)
+        if form.is_valid():
+            form.save
+        return redirect('index')
+    return render(request,'crearPersona.html',{'form':form})
+    
+

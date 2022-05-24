@@ -1,4 +1,3 @@
-from multiprocessing import context
 from django.shortcuts import render,redirect
 from django.conf import settings
 from django.core.mail import send_mail
@@ -25,29 +24,47 @@ def home(request):
     return render(request, 'index.html')
 
 def crearPersona(request):
-    if request.method == "POST":
+    if request.method == "GET":
+            form = PersonaForm()
+            contexto = {
+                'form':form
+            }
+    else:
         form = PersonaForm(request.POST)
+        contexto = {
+            'form':form
+        }
         if form.is_valid():
             form.save()
-            return redirect('index')
-    else:
-        form = PersonaForm()
-    return render(request, 'crearPersona.html', {'form':form})
+            return redirect('listarPersona')
+    return render(request, 'crearPersona.html',contexto)
+
 
 def listarPersona(request):
     persona = Persona.objects.all()
-    context = {'persona' : persona}
-    return render (request,'listarPersona.html', context)
+    contexto = {'persona' : persona}
+    return render (request,'listarPersona.html', contexto)
 
-def editarPersona(request,id_persona):
-    persona = Persona.objects.get(id = id_persona)
-    if request.method =='GET':
+def editarPersona(request, id_persona):
+    persona = Persona.objects.get(id_persona = id_persona)
+    if request.method == 'GET':
         form = PersonaForm(instance = persona)
+        contexto={
+            'form':form
+        }
     else:
         form = PersonaForm(request.POST, instance = persona)
+        contexto={
+            'form':form
+        }
         if form.is_valid():
             form.save
-        return redirect('index')
-    return render(request,'crearPersona.html',{'form':form})
-    
+            return redirect ('listarPersona')
+    return render(request, 'crearPersona.html',contexto)
 
+
+def eliminarPersona(request, id_persona):
+    persona = Persona.objects.get(id_persona = id_persona)
+    if request.method == 'GET':
+        persona.delete()
+        return redirect('listarPersona')

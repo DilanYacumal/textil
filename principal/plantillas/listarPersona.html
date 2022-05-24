@@ -7,7 +7,7 @@
     <title>Lista Persona</title>
 </head>
 <body>
-    <table>
+    <table border="2">
         <head>
             <tr>
                 <td>Id</td>
@@ -24,6 +24,7 @@
                 <td>tipo persona</td>
                 <td>area</td>
                 <td>tipo documento</td>
+                <td>OPCION</td>
             </tr>
         </head>
         <tbody>
@@ -43,6 +44,8 @@
                         <td>{{persona.tipo_persona_idtipo_persona.nombre}}</td>
                         <td>{{persona.area_idarea.nombre}}</td>
                         <td>{{persona.tipo_documento_idtipo_documento.nombre}}</td>
+                        <td><a href="{% url 'editarPersona' persona.id_persona %}">EDITAR</a> <a href="{% url 'eliminarPersona' persona.id_persona %}">ELIMINAR</a></td>
+                        
                 </tr>
             {% endfor %}
         </tbody>

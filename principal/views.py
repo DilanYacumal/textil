@@ -49,18 +49,13 @@ def editarPersona(request, id_persona):
     persona = Persona.objects.get(id_persona = id_persona)
     if request.method == 'GET':
         form = PersonaForm(instance = persona)
-        contexto={
-            'form':form
-        }
+        
     else:
         form = PersonaForm(request.POST, instance = persona)
-        contexto={
-            'form':form
-        }
         if form.is_valid():
-            form.save
-            return redirect ('listarPersona')
-    return render(request, 'crearPersona.html',contexto)
+            form.save()
+        return redirect ('listarPersona')
+    return render(request, 'crearPersona.html')
 
 
 def eliminarPersona(request, id_persona):
